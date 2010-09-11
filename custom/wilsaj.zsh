@@ -11,7 +11,10 @@ if [[ -n `uname -a | grep Arch` ]]; then
 if [[ `uname` == "Darwin" ]]; then
     export VIRTUALENV_DIR=/usr/local/bin/
     export PATH=/usr/local/bin:/usr/local/Cellar/smlnj/110.75/libexec/bin:${PATH}
-fi
+    export EDITOR='mvim'
+  else
+    export EDITOR='gvim'
+  fi
 
 
 DOTFILES_DIR=~/dotfiles/
@@ -30,15 +33,13 @@ alias ll='ls -lAF'
 autoload -U zmv
 alias mmv='noglob zmv -W'
 
+
+# convert .mov (e.g. quicktime screen recordings) to optimized gifs
+#alias mov2gif=';'
+mov2gif() { TMP_CONVERT_FILE="/tmp/_convert_$1.gif"; ffmpeg -i $1 -pix_fmt rgb24 -r 4 $TMP_CONVERT_FILE && mv $TMP_CONVERT_FILE $2 }
+
 # use hub as a wrapper for git if hub is installed
 [[ -x $(whence -p hub) ]] && function git(){hub "$@"}
-
-# editor
-if [[ `uname` == 'Darwin' ]]; then
-    export EDITOR='mvim'
-  else
-    export EDITOR='gvim'
-fi
 
 # just a shorthand variable for referencing dotfiles dir in other paths
 DOTFILES=${HOME}/dotfiles
