@@ -5,13 +5,29 @@ alias la='ls -a'
 alias lf='ls -FA'
 alias ll='ls -lAF'
 
-# pip + virtualenv stuff
-PIP_REQUIRE_VIRTUALENV=true
-PIP_RESPECT_VIRTUALENV=true
-export PIP_REQUIRE_VIRTUALENV
-export PIP_RESPECT_VIRTUALENV
 
-# This will keep emacs TRAMP-mode from wonking out when it tries to connect
+# Make python2 the explicit python of choice (for now)
+export PYTHON='python2'
+export PYTHONPATH='/usr/bin/python2'
+
+
+# And for pymacs
+export PYMACS_PYTHON='python2'
+
+
+# Don't let pip install anything if not in an active virtualenv
+export PIP_REQUIRE_VIRTUALENV=true
+export PIP_RESPECT_VIRTUALENV=true
+
+
+# virtualenvwrapper config
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+
+
+# This will keep emacs TRAMP-mode from wonking out when it tries to
+#  connect to zsh
 if [[ $TERM == "dumb" ]] 
 then
     unsetopt zle 
