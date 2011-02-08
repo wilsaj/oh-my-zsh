@@ -6,6 +6,10 @@ alias lf='ls -FA'
 alias ll='ls -lAF'
 
 
+# editor
+export EDITOR='emacsclient'
+
+
 # Make python2 the explicit python of choice (for now)
 export PYTHON='python2'
 export PYTHONPATH='/usr/bin/python2'
