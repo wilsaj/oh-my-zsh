@@ -35,9 +35,9 @@ export IPYTHONDIR='~/config/.ipython/'
 
 # This will keep emacs TRAMP-mode from wonking out when it tries to
 #  connect to zsh
-if [[ $TERM == "dumb" ]] 
+if [[ $TERM == "dumb" ]]
 then
-    unsetopt zle 
+    unsetopt zle
     unsetopt prompt_cr
     unsetopt prompt_subst
     unfunction precmd
