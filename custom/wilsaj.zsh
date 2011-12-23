@@ -55,7 +55,7 @@ source ${VIRTUALENV_DIR}/virtualenvwrapper.sh
 export IPYTHONDIR='~/config/.ipython/'
 
 
-# make default pager less and don't display control chars (mostly for ipython)
+# make less the default pager and don't display control chars (mostly for ipython)
 export PAGER=less
 export LESS=-r
 
