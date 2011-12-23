@@ -54,6 +54,12 @@ source ${VIRTUALENV_DIR}/virtualenvwrapper.sh
 # make ipython configuration directory
 export IPYTHONDIR='~/config/.ipython/'
 
+
+# make default pager less and don't display control chars (mostly for ipython)
+export PAGER=less
+export LESS=-r
+
+
 # This will keep emacs TRAMP-mode from wonking out when it tries to
 #  connect to zsh
 if [[ $TERM == "dumb" ]]
