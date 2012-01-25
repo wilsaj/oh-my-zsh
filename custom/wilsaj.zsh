@@ -25,12 +25,16 @@ alias la='ls -a'
 alias lf='ls -FA'
 alias ll='ls -lAF'
 
+# easy renaming multiple files
+#   source: http://www.mfasold.net/blog/2008/11/moving-or-renaming-multiple-files/
+autoload -U zmv
+alias mmv='noglob zmv -W'
+
 # use hub as a wrapper for git if hub is installed
 [[ -x $(whence -p hub) ]] && function git(){hub "$@"}
 
 # editor
 export EDITOR='emacsclient'
-
 
 # Make python2 the explicit python of choice (for now)
 export PYTHON=${PYTHON}
