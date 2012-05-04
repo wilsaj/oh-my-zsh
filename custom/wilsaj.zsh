@@ -33,6 +33,7 @@ alias mmv='noglob zmv -W'
 # use hub as a wrapper for git if hub is installed
 [[ -x $(whence -p hub) ]] && function git(){hub "$@"}
 
+
 # editor
 export EDITOR='emacsclient'
 
@@ -56,7 +57,7 @@ source ${VIRTUALENV_DIR}/virtualenvwrapper.sh
 
 
 # make ipython configuration directory
-export IPYTHONDIR='~/config/.ipython/'
+export IPYTHONDIR='~/dotfiles/.ipython/'
 
 
 # make less the default pager and don't display control chars (mostly for ipython)
