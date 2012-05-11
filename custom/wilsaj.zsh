@@ -33,9 +33,10 @@ alias mmv='noglob zmv -W'
 # use hub as a wrapper for git if hub is installed
 [[ -x $(whence -p hub) ]] && function git(){hub "$@"}
 
+export TERM='rxvt-unicode'
 
 # editor
-export EDITOR='emacsclient'
+export EDITOR='gvim'
 
 # Make python2 the explicit python of choice (for now)
 export PYTHON=${PYTHON}
@@ -64,6 +65,8 @@ export IPYTHONDIR='~/dotfiles/.ipython/'
 export PAGER=less
 export LESS=-r
 
+# add cabal to $PATH
+export PATH=~/.cabal/bin:$PATH
 
 # This will keep emacs TRAMP-mode from wonking out when it tries to
 #  connect to zsh
