@@ -19,6 +19,11 @@ if [[ -d /usr/local/share/epd ]]; then
       PYTHONPATH=/usr/bin/python2
    fi
 
+if [[ `uname` == "Darwin" ]]; then
+    PYTHONPATH=/usr/local/bin/python2
+    export VIRTUALENV_DIR=/usr/local/share/python/
+    export PATH=/usr/local/share/python:/usr/local/bin:${PATH}
+  fi
 
 # ls aliases
 alias la='ls -a'
@@ -46,7 +51,6 @@ fi
 export PYTHON=${PYTHON}
 export PYTHONPATH=${PYTHONPATH}
 
-
 # And for pymacs
 export PYMACS_PYTHON=${PYTHON}
 
@@ -54,16 +58,13 @@ export PYMACS_PYTHON=${PYTHON}
 export PIP_REQUIRE_VIRTUALENV=true
 export PIP_RESPECT_VIRTUALENV=true
 
-
 # virtualenvwrapper config
 export VIRTUALENVWRAPPER_PYTHON=${PYTHONPATH}
 export WORKON_HOME=$HOME/.virtualenvs
 source ${VIRTUALENV_DIR}/virtualenvwrapper.sh
 
-
 # make ipython configuration directory
 export IPYTHONDIR='~/dotfiles/.ipython/'
-
 
 # make less the default pager and don't display control chars (mostly for ipython)
 export PAGER=less
