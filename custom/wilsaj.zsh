@@ -1,10 +1,10 @@
 # My custom zsh stuff
 
 # special cases for Ubuntu
-if [[ -n `uname -a | grep Ubuntu` ]]; then
-      export VIRTUALENV_DIR=/usr/local/bin/
-   else
+if [[ -n `uname -a | grep Arch` ]]; then
       export VIRTUALENV_DIR=/usr/bin/
+   else
+      export VIRTUALENV_DIR=/usr/local/bin/
    fi
 
 # make virtualenvs work with EPD
@@ -36,7 +36,11 @@ alias mmv='noglob zmv -W'
 export TERM='rxvt-unicode'
 
 # editor
-export EDITOR='gvim'
+if [[ `uname` == 'Darwin' ]]; then
+    export EDITOR='mvim'
+  else
+    export EDITOR='gvim'
+fi
 
 # Make python2 the explicit python of choice (for now)
 export PYTHON=${PYTHON}
