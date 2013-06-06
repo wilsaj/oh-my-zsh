@@ -20,9 +20,9 @@ if [[ -d /usr/local/share/epd ]]; then
    fi
 
 if [[ `uname` == "Darwin" ]]; then
-    PYTHONPATH=/usr/local/bin/python2
+    PYTHONPATH=/usr/local/lib/python2.7/site-packages/
     export VIRTUALENV_DIR=/usr/local/share/python/
-    export PATH=/usr/local/share/python:/usr/local/bin:${PATH}
+    export PATH=/usr/local/share/python:/usr/local/bin:/usr/local/Cellar/smlnj/110.75/libexec/bin:${PATH}
   fi
 
 # ls aliases
@@ -47,6 +47,12 @@ if [[ `uname` == 'Darwin' ]]; then
     export EDITOR='gvim'
 fi
 
+# just a shorthand variable for referencing dotfiles dir in other paths
+DOTFILES=${HOME}/dotfiles
+
+# default coffeelint config file
+export COFFEELINT_CONFIG=${DOTFILES}/coffeelint.json
+
 # Make python2 the explicit python of choice (for now)
 export PYTHON=${PYTHON}
 export PYTHONPATH=${PYTHONPATH}
@@ -59,12 +65,12 @@ export PIP_REQUIRE_VIRTUALENV=true
 export PIP_RESPECT_VIRTUALENV=true
 
 # virtualenvwrapper config
-export VIRTUALENVWRAPPER_PYTHON=${PYTHONPATH}
+export VIRTUALENVWRAPPER_PYTHON=${PYTHON}
 export WORKON_HOME=$HOME/.virtualenvs
 source ${VIRTUALENV_DIR}/virtualenvwrapper.sh
 
 # make ipython configuration directory
-export IPYTHONDIR='~/dotfiles/.ipython/'
+export IPYTHONDIR=${DOTFILES}/.ipython/
 
 # make less the default pager and don't display control chars (mostly for ipython)
 export PAGER=less
@@ -84,3 +90,6 @@ then
     unfunction preexec
     PS1='$ '
 fi
+
+# helper function that just shows HTTP headers returned by a given HTTP request
+headers(){curl -sD - $@ -o /dev/null;}
