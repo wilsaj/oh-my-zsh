@@ -7,23 +7,19 @@ if [[ -n `uname -a | grep Arch` ]]; then
       export VIRTUALENV_DIR=/usr/local/bin/
    fi
 
-# make virtualenvs work with EPD
-if [[ -d /usr/local/share/epd ]]; then
-      PYTHON_DIR=/usr/local/share/epd/
-      PYTHON=${PYTHON_DIR}/bin/python
-      PYTHONPATH=${PYTHON_DIR}/bin/python
-      export VIRTUALENV_DIR=/usr/local/share/epd/bin/
-      export PATH=${PYTHON_DIR}/bin/:${PATH}
-   else
-      PYTHON=python2
-      PYTHONPATH=/usr/bin/python2
-   fi
 
 if [[ `uname` == "Darwin" ]]; then
     PYTHONPATH=/usr/local/lib/python2.7/site-packages/
     export VIRTUALENV_DIR=/usr/local/bin/
     export PATH=/usr/local/bin:/usr/local/Cellar/smlnj/110.75/libexec/bin:${PATH}
   fi
+
+
+DOTFILES_DIR=~/dotfiles/
+if [[ -d ${DOTFILES_DIR} ]]; then
+      export PATH=${DOTFILES_DIR}/bin:${PATH}
+   fi
+
 
 # ls aliases
 alias la='ls -a'
@@ -71,6 +67,13 @@ source ${VIRTUALENV_DIR}/virtualenvwrapper.sh
 
 # make ipython configuration directory
 export IPYTHONDIR=${DOTFILES}/.ipython/
+
+CANOPY_DIR=~/Library/Enthought/Canopy_64bit/User/bin/
+# make virtualenvs work with canopy
+if [[ -d ${CANOPY_DIR} ]]; then
+      export PATH=${PATH}:${CANOPY_DIR}
+   fi
+
 
 # make less the default pager and don't display control chars (mostly for ipython)
 export PAGER=less
