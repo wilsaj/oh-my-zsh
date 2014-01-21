@@ -93,3 +93,7 @@ fi
 
 # helper function that just shows HTTP headers returned by a given HTTP request
 headers(){curl -sD - $@ -o /dev/null;}
+
+# disable autocorrect - it can be annoying often
+unsetopt correct_all
+unsetopt correct
