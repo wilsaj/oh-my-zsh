@@ -21,8 +21,8 @@ if [[ -d /usr/local/share/epd ]]; then
 
 if [[ `uname` == "Darwin" ]]; then
     PYTHONPATH=/usr/local/lib/python2.7/site-packages/
-    export VIRTUALENV_DIR=/usr/local/share/python/
-    export PATH=/usr/local/share/python:/usr/local/bin:/usr/local/Cellar/smlnj/110.75/libexec/bin:${PATH}
+    export VIRTUALENV_DIR=/usr/local/bin/
+    export PATH=/usr/local/bin:/usr/local/Cellar/smlnj/110.75/libexec/bin:${PATH}
   fi
 
 # ls aliases
