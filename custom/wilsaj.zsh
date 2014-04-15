@@ -100,3 +100,10 @@ headers(){curl -sD - $@ -o /dev/null;}
 # disable autocorrect - it can be annoying often
 unsetopt correct_all
 unsetopt correct
+
+# restore some of the keybinds from non-vi-mode
+bindkey '^r' history-incremental-search-backward
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+bindkey '^f' forward-char
+bindkey '^b' backward-char
