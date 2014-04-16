@@ -108,3 +108,4 @@ bindkey '^e' end-of-line
 bindkey '^f' forward-char
 bindkey '^b' backward-char
 bindkey '^k' kill-line
+bindkey '^y' yank
