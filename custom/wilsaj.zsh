@@ -12,7 +12,10 @@ if [[ `uname` == "Darwin" ]]; then
     PYTHONPATH=/usr/local/lib/python2.7/site-packages/
     export VIRTUALENV_DIR=/usr/local/bin/
     export PATH=/usr/local/bin:/usr/local/Cellar/smlnj/110.75/libexec/bin:${PATH}
-  fi
+    export EDITOR='mvim'
+  else
+    export EDITOR='gvim'
+fi
 
 
 DOTFILES_DIR=~/dotfiles/
@@ -36,12 +39,6 @@ alias mmv='noglob zmv -W'
 
 export TERM='rxvt-unicode'
 
-# editor
-if [[ `uname` == 'Darwin' ]]; then
-    export EDITOR='mvim'
-  else
-    export EDITOR='gvim'
-fi
 
 # just a shorthand variable for referencing dotfiles dir in other paths
 DOTFILES=${HOME}/dotfiles
