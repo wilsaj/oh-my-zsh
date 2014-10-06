@@ -34,8 +34,6 @@ alias mmv='noglob zmv -W'
 # use hub as a wrapper for git if hub is installed
 [[ -x $(whence -p hub) ]] && function git(){hub "$@"}
 
-export TERM='rxvt-unicode'
-
 # editor
 if [[ `uname` == 'Darwin' ]]; then
     export EDITOR='mvim'
