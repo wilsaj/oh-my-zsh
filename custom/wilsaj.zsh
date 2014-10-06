@@ -15,7 +15,7 @@ if [[ `uname` == "Darwin" ]]; then
     export EDITOR='mvim'
   else
     export EDITOR='gvim'
-fi
+  fi
 
 
 DOTFILES_DIR=~/dotfiles/
@@ -36,9 +36,6 @@ alias mmv='noglob zmv -W'
 
 # use hub as a wrapper for git if hub is installed
 [[ -x $(whence -p hub) ]] && function git(){hub "$@"}
-
-export TERM='rxvt-unicode'
-
 
 # just a shorthand variable for referencing dotfiles dir in other paths
 DOTFILES=${HOME}/dotfiles
