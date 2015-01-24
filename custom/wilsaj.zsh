@@ -9,10 +9,9 @@ if [[ -n `uname -a | grep Arch` ]]; then
 
 
 if [[ `uname` == "Darwin" ]]; then
-    PYTHONPATH=/usr/local/lib/python2.7/site-packages/
     export VIRTUALENV_DIR=/usr/local/bin/
     export PATH=/usr/local/bin:/usr/local/Cellar/smlnj/110.75/libexec/bin:${PATH}
-  fi
+fi
 
 
 DOTFILES_DIR=~/dotfiles/
@@ -47,31 +46,16 @@ DOTFILES=${HOME}/dotfiles
 # default coffeelint config file
 export COFFEELINT_CONFIG=${DOTFILES}/coffeelint.json
 
-# Make python2 the explicit python of choice (for now)
-export PYTHON=${PYTHON}
-export PYTHONPATH=${PYTHONPATH}
-
-# And for pymacs
-export PYMACS_PYTHON=${PYTHON}
-
 # Don't let pip install anything if not in an active virtualenv
 export PIP_REQUIRE_VIRTUALENV=true
 export PIP_RESPECT_VIRTUALENV=true
 
 # virtualenvwrapper config
-export VIRTUALENVWRAPPER_PYTHON=${PYTHON}
 export WORKON_HOME=$HOME/.virtualenvs
 source ${VIRTUALENV_DIR}/virtualenvwrapper.sh
 
 # make ipython configuration directory
 export IPYTHONDIR=${DOTFILES}/.ipython/
-
-CANOPY_DIR=~/Library/Enthought/Canopy_64bit/User/bin/
-# make virtualenvs work with canopy
-if [[ -d ${CANOPY_DIR} ]]; then
-      export PATH=${PATH}:${CANOPY_DIR}
-   fi
-
 
 # make less the default pager and don't display control chars (mostly for ipython)
 export PAGER=less
@@ -107,3 +91,5 @@ bindkey '^f' forward-char
 bindkey '^b' backward-char
 bindkey '^k' kill-line
 bindkey '^y' yank
+
+export PATH=/usr/local/bin:$PATH
