@@ -9,7 +9,6 @@ if [[ -n `uname -a | grep Arch` ]]; then
 
 
 if [[ `uname` == "Darwin" ]]; then
-    PYTHONPATH=/usr/local/lib/python2.7/site-packages/
     export VIRTUALENV_DIR=/usr/local/bin/
     export PATH=/usr/local/bin:/usr/local/Cellar/smlnj/110.75/libexec/bin:${PATH}
     export EDITOR='mvim'
