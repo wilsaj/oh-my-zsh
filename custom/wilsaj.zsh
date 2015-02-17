@@ -34,6 +34,11 @@ alias ll='ls -lAF'
 autoload -U zmv
 alias mmv='noglob zmv -W'
 
+
+# convert .mov (e.g. quicktime screen recordings) to optimized gifs
+#alias mov2gif=';'
+mov2gif() { TMP_CONVERT_FILE="/tmp/_convert_$1.gif"; ffmpeg -i $1 -pix_fmt rgb24 -r 4 $TMP_CONVERT_FILE && mv $TMP_CONVERT_FILE $2 }
+
 # use hub as a wrapper for git if hub is installed
 [[ -x $(whence -p hub) ]] && function git(){hub "$@"}
 
@@ -61,13 +66,6 @@ source ${VIRTUALENV_DIR}/virtualenvwrapper.sh
 
 # make ipython configuration directory
 export IPYTHONDIR=${DOTFILES}/.ipython/
-
-CANOPY_DIR=~/Library/Enthought/Canopy_64bit/User/bin/
-# make virtualenvs work with canopy
-if [[ -d ${CANOPY_DIR} ]]; then
-      export PATH=${PATH}:${CANOPY_DIR}
-   fi
-
 
 # make less the default pager and don't display control chars (mostly for ipython)
 export PAGER=less
