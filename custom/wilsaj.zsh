@@ -46,11 +46,19 @@ DOTFILES=${HOME}/dotfiles
 # default coffeelint config file
 export COFFEELINT_CONFIG=${DOTFILES}/coffeelint.json
 
+# Make python2 the explicit python of choice (for now)
+export PYTHON=${PYTHON}
+export PYTHONPATH=${PYTHONPATH}
+
+# And for pymacs
+export PYMACS_PYTHON=${PYTHON}
+
 # Don't let pip install anything if not in an active virtualenv
 export PIP_REQUIRE_VIRTUALENV=true
 export PIP_RESPECT_VIRTUALENV=true
 
 # virtualenvwrapper config
+export VIRTUALENVWRAPPER_PYTHON=${PYTHON}
 export WORKON_HOME=$HOME/.virtualenvs
 source ${VIRTUALENV_DIR}/virtualenvwrapper.sh
 
